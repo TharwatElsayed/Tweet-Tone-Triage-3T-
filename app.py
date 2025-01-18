@@ -152,7 +152,8 @@ elif selected == "Data Classes Balancing":
         st.subheader('Distribution of Classes (Bar Chart)')
     
         # Count occurrences of each class
-        class_counts = df_fig['class'].value_counts().reindex([0, 1, 2], fill_value=0)
+        #class_counts = df_fig['class'].value_counts().reindex([0, 1, 2], fill_value=0)
+        class_counts = df_fig.value_counts().reindex([0, 1, 2], fill_value=0)
 
         # Create a bar chart using Plotly
         bar_fig = px.bar(
