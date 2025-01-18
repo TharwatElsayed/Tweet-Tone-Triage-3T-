@@ -117,7 +117,7 @@ elif selected == "Data Exploration":
 
         # Horizontal line separator
         st.markdown("---")
-        st.write(df.info())
+        st.write(df.info(buf=buffer))
 
         
     # Tab 2: Dataset Columns Description
