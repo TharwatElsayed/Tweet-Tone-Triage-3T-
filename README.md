@@ -1,2 +1,2 @@
 # Tweet-Tone-Triage-3T-
-Classifying Sentiments on Twitter
+Tweet Tone Triage Application: A Secured Federated Deep Learning Approach
