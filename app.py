@@ -12,6 +12,7 @@ from nltk.tokenize import word_tokenize
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.utils import pad_sequences
 import pickle
+from PIL import Image
 
 # Preprocessing functions
 space_pattern = '\s+'
