@@ -138,9 +138,9 @@ elif selected == "Data Classes Balancing":
     st.title("Understanding Class Distribution")
     # Sample Data (replace this with your actual DataFrame)
     # Ensure 'class' is in your DataFrame (0: Hate Speech, 1: Offensive Language, 2: Neither)
-    data = {'class': [0, 1, 2, 0, 1, 2, 1, 1, 0, 2, 0, 1, 0, 2, 1]}  # Example data
-    df_fig = pd.DataFrame(data)
-
+    #data = {'class': [0, 1, 2, 0, 1, 2, 1, 1, 0, 2, 0, 1, 0, 2, 1]}  # Example data
+    #df_fig = pd.DataFrame(data)
+    df_fig = df['class']
     # Class labels
     class_labels = ['Hate Speech', 'Offensive Language', 'Neither']
 
