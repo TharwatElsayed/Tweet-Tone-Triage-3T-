@@ -138,8 +138,6 @@ elif selected == "Data Classes Balancing":
     st.title("Understanding Class Distribution")
     # Sample Data (replace this with your actual DataFrame)
     # Ensure 'class' is in your DataFrame (0: Hate Speech, 1: Offensive Language, 2: Neither)
-    #data = {'class': [0, 1, 2, 0, 1, 2, 1, 1, 0, 2, 0, 1, 0, 2, 1]}  # Example data
-    #df_fig = pd.DataFrame(data)
     df_fig = df['class']
     # Class labels
     class_labels = ['Hate Speech', 'Offensive Language', 'Neither']
@@ -152,7 +150,6 @@ elif selected == "Data Classes Balancing":
         st.subheader('Distribution of Classes (Bar Chart)')
     
         # Count occurrences of each class
-        #class_counts = df_fig['class'].value_counts().reindex([0, 1, 2], fill_value=0)
         class_counts = df_fig.value_counts().reindex([0, 1, 2], fill_value=0)
 
         # Create a bar chart using Plotly
