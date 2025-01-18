@@ -115,11 +115,6 @@ elif selected == "Data Exploration":
         # Display the info in Streamlit
         st.text(s)
 
-        # Horizontal line separator
-        st.markdown("---")
-        st.write(df.info(buf=buffer))
-
-        
     # Tab 2: Dataset Columns Description
     with tab2:
         st.subheader('Dataset Columns Description')
