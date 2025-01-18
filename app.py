@@ -90,12 +90,10 @@ if selected == "Data Acquisition":
     Davidson, T., Warmsley, D., Macy, M., & Weber, I. (2017, May). Automated hate speech 
     detection and the problem of offensive language. In Proceedings of the international 
     AAAI conference on web and social media (Vol. 11, No. 1, pp. 512-515).
+    
     The Dataset can be downloaded from:
-    
-    https://www.kaggle.com/datasets/mrmorj/hate-speech-and-offensive-language-dataset
-    
+    https://www.kaggle.com/datasets/mrmorj/hate-speech-and-offensive-language-dataset  
     https://github.com/t-davidson/hate-speech-and-offensive-language
-    
     """)
     # Horizontal line separator
     st.markdown("---")
