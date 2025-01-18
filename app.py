@@ -73,7 +73,7 @@ with st.sidebar:
         options=["Data Acquisition", "Data Exploration", "Data Classes Balancing", "Data Preparation", "ML Model Selection", "Try The Model", "About", "Contact"],  # Menu options
         icons=["house","cloud", "list", "gear", "graph-up", "briefcase","info","envelope"],  # Optional icons
         menu_icon="cast",  # Icon for the menu title
-        default_index=0,  # Default selected option
+        default_index=5,  # Default selected option
         orientation="vertical"  # Set the orientation to vertical
     )
 
