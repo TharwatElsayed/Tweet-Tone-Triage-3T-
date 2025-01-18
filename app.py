@@ -460,6 +460,37 @@ elif selected == "Contact":
     I look forward to connecting with you!
     """)
     
+    # Set page title and header
+    st.title("Contact & Supervisors")
+
+    # Introduction text
+    st.write("This application was designed and deployed by **Tharwat El-Sayed Ismail**, under the supervision of:")
+
+    # Load images
+    ayman_image = Image.open("Ayman Elsayed.jpg")
+    abdallah_image = Image.open("Abdullah-N-Moustafa.png")
+    tharwat_image = Image.open("Tharwat Elsayed Ismail.JPG")  # Replace with your image path
+
+    # Display Prof. Dr. Ayman EL-Sayed info and image
+    st.subheader("Prof. Dr. Ayman EL-Sayed")
+    st.image(ayman_image, caption="Prof. Dr. Ayman EL-Sayed", width=200)
+    st.write("[ayman.elsayed@el-eng.menofia.edu.eg](mailto:ayman.elsayed@el-eng.menofia.edu.eg)")
+
+    # Display Dr. Abdallah Moustafa Nabil info and image
+    st.subheader("Dr. Abdallah Moustafa Nabil")
+    st.image(abdallah_image, caption="Dr. Abdallah Moustafa Nabil", width=200)
+    st.write("[abdalla.moustafa@ejust.edu.eg](mailto:abdalla.moustafa@ejust.edu.eg)")
+
+    # Display your contact info and image
+    st.subheader("Eng. Tharwat El-Sayed Ismail")
+    st.image(tharwat_image, caption="Tharwat El-Sayed Ismail", width=200)  # Adjust image size as needed
+    st.write("[tharwat_uss89@hotmail.com](mailto:tharwat_uss89@hotmail.com)")
+
+    # Footer note
+    st.write("For any inquiries, feel free to reach us.")
+    
+    # Horizontal line separator
+    st.markdown("---")
     # Horizontal line separator
     st.markdown("---")
 
