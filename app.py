@@ -79,7 +79,7 @@ with st.sidebar:
 
 # Display content based on selected tab
 if selected == "Data Acquisition":
-    st.title("Introduction")
+    st.title("Hate Speech and Offensive Language Dataset")
     st.write("""This dataset contains data related to hate speech and offensive language. 
     Davidson introduced a dataset of tweets categorized using a crowdsourced hate speech vocabulary. 
     These tweets were classified into three categories: hate speech, offensive language, and neither. 
