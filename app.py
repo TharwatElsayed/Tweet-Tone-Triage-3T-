@@ -357,6 +357,10 @@ elif selected == "Try The Model":
         # Map the prediction to a human-readable label
         label_map = {0: 'Hate Speech', 1: 'Offensive Language', 2: 'Neither'}
             
+        # Load the pre-trained Federated Deep Learning model
+        with open('3T.pkl', 'rb') as f:
+            SFD_model = pickle.load(f)
+        
         # Load the pre-trained Logistic Regression model
         with open('LR_model.pkl', 'rb') as f:
             LR_model = pickle.load(f)
@@ -380,6 +384,14 @@ elif selected == "Try The Model":
         st.write(f"Stripped_tweet: {stripped_tweet}")
         st.write(f"Stemmed_tweet: {stemmed_tweet}")
         st.write(f"Tokenized_padded_docs: {padded_docs}")
+        # Horizontal line separator
+        st.markdown("---")
+        # Predict sentiment/class
+        y_pred = SFD_model.predict(padded_docs)      
+        # Display prediction result
+        st.write(f"By Using A Secured Federated Deep Learning Model")
+        st.write(f"Prediction: {label_map[y_pred[0]]}")
+        st.write(f"Prediction_class: {y_pred}")
         # Horizontal line separator
         st.markdown("---")
         # Predict sentiment/class
