@@ -447,22 +447,8 @@ elif selected == "About":
     st.markdown("---")
 
 elif selected == "Contact":
-    st.title("Contact Me")
-    
-    st.write("""
-    I’m Tharwat El-Sayed Ismail, (Data Scientist - AI Developer) I am a Data Scientist with expertise in statistical analysis, machine learning (ML), and data visualization, I bring a wealth of experience in Python, adept at extracting actionable insights to inform strategic decisions and effectively solve real-world problems. Additionally, I am an AI Developer proficient in Python, TensorFlow, and PyTorch, specialized in creating scalable AI solutions to drive business growth and enhance user experiences. Highly skilled in machine learning, natural language processing (NLP).
-    
-    **Contact Information:**
-    
-    - **Email:** tharwat_uss89@hotmail.com
-    - **LinkedIn:** [Tharwat El-Sayed](www.linkedin.com/in/tharwat-el-sayed-706276b1/)
-    - **Portfolio:** [View My Work](https://linktr.ee/tharwat.elsayed)
-    
-    I look forward to connecting with you!
-    """)
-    
     # Set page title and header
-    st.title("Contact & Supervisors")
+    st.title("Supervisors")
 
     # Introduction text
     st.write("This application was designed and deployed by **Tharwat El-Sayed Ismail**, under the supervision of:")
@@ -485,13 +471,24 @@ elif selected == "Contact":
     # Display your contact info and image
     st.subheader("Eng. Tharwat El-Sayed Ismail")
     st.image(tharwat_image, caption="Tharwat El-Sayed Ismail", width=200)  # Adjust image size as needed
-    st.write("[tharwat_uss89@hotmail.com](mailto:tharwat_uss89@hotmail.com)")
-
-    # Footer note
-    st.write("For any inquiries, feel free to reach us.")
-    
+    st.write("[tharwat.elsayed@el-eng.menofia.edu.eg](mailto:tharwat.elsayed@el-eng.menofia.edu.eg)")
+        
     # Horizontal line separator
     st.markdown("---")
+    st.title("Contact Me")
+    
+    st.write("""
+    I’m Tharwat El-Sayed Ismail, (Data Scientist - AI Developer) I am a Data Scientist with expertise in statistical analysis, machine learning (ML), and data visualization, I bring a wealth of experience in Python, adept at extracting actionable insights to inform strategic decisions and effectively solve real-world problems. Additionally, I am an AI Developer proficient in Python, TensorFlow, and PyTorch, specialized in creating scalable AI solutions to drive business growth and enhance user experiences. Highly skilled in machine learning, natural language processing (NLP).
+    
+    **Contact Information:**
+    
+    - **Email:** tharwat_uss89@hotmail.com
+    - **LinkedIn:** [Tharwat El-Sayed](www.linkedin.com/in/tharwat-el-sayed-706276b1/)
+    - **Portfolio:** [View My Work](https://linktr.ee/tharwat.elsayed)
+    
+    I look forward to connecting with you!
+    """)
+    
     # Horizontal line separator
     st.markdown("---")
 
