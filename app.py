@@ -386,14 +386,17 @@ elif selected == "Try The Model":
         st.write(f"Tokenized_padded_docs: {padded_docs}")
         # Horizontal line separator
         st.markdown("---")
+        
         # Predict sentiment/class
         y_pred = SFD_model.predict(padded_docs)      
         # Display prediction result
         st.write(f"By Using A Secured Federated Deep Learning Model")
         st.write(f"Prediction: {label_map[y_pred[0]]}")
         st.write(f"Prediction_class: {y_pred}")
+        
         # Horizontal line separator
         st.markdown("---")
+        
         # Predict sentiment/class
         y_pred = LR_model.predict(padded_docs)      
         # Display prediction result
