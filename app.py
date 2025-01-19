@@ -333,8 +333,8 @@ elif selected == "ML Model Selection":
     # Horizontal line separator
     st.markdown("---")
  
-elif selected == "Try The Model":
-    st.title("Tweet Sentiment/Class Prediction")
+elif selected == "Try The Models":
+    st.title("Tweet Tone Triage Application")
     # Input box for entering the tweet
     user_input = st.text_area("Enter the tweet:", "#_ I AM a Happy Boy")
 
