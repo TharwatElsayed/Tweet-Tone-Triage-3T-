@@ -12,6 +12,42 @@ from nltk.tokenize import word_tokenize
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.utils import pad_sequences
 import pickle
+from PIL import Image
+
+import numpy as np
+from tensorflow.keras.layers import Layer
+from tensorflow.keras.models import load_model
+from tensorflow.keras import backend as K
+
+
+# Define the custom attention layer
+class attention(Layer):
+    def __init__(self, return_sequences=True, **kwargs):
+        self.return_sequences = return_sequences
+        super(attention, self).__init__(**kwargs)
+
+    def build(self, input_shape):
+        self.W = self.add_weight(name="att_weight", shape=(input_shape[-1], 1),
+                                 initializer="normal")
+        self.b = self.add_weight(name="att_bias", shape=(input_shape[1], 1),
+                                 initializer="zeros")
+        super(attention, self).build(input_shape)
+
+    def call(self, x):
+        e = K.tanh(K.dot(x, self.W) + self.b)
+        a = K.softmax(e, axis=1)
+        output = x * a
+
+        if self.return_sequences:
+            return output
+
+        return K.sum(output, axis=1)
+
+    def get_config(self):
+        config = super(attention, self).get_config()
+        config.update({'return_sequences': self.return_sequences})
+        return config
+
 
 # Preprocessing functions
 space_pattern = '\s+'
@@ -333,7 +369,7 @@ elif selected == "ML Model Selection":
     st.markdown("---")
  
 elif selected == "Try The Model":
-    st.title("Tweet Sentiment/Class Prediction")
+    st.title("Tweet Tone Triage Application")
     # Input box for entering the tweet
     user_input = st.text_area("Enter the tweet:", "#_ I AM a Happy Boy")
 
@@ -356,6 +392,10 @@ elif selected == "Try The Model":
         # Map the prediction to a human-readable label
         label_map = {0: 'Hate Speech', 1: 'Offensive Language', 2: 'Neither'}
             
+        # Load the pre-trained Federated Deep Learning model
+        #with open('3T.pkl', 'rb') as f:
+        SFD_model = load_model("One-layer_BiLSTM_without_dropout.keras", custom_objects={'attention': attention})
+        
         # Load the pre-trained Logistic Regression model
         with open('LR_model.pkl', 'rb') as f:
             LR_model = pickle.load(f)
@@ -381,6 +421,20 @@ elif selected == "Try The Model":
         st.write(f"Tokenized_padded_docs: {padded_docs}")
         # Horizontal line separator
         st.markdown("---")
+        
+        # Predict sentiment/class
+        predictions = SFD_model.predict(padded_docs)
+        y_pred = np.argmax(predictions, axis=1)
+        
+        #y_pred = SFD_model.predict(padded_docs)      
+        # Display prediction result
+        st.write(f"By Using A Secured Federated Deep Learning Model")
+        st.write(f"Prediction: {label_map[y_pred[0]]}")
+        st.write(f"Prediction_class: {y_pred}")
+        
+        # Horizontal line separator
+        st.markdown("---")
+        
         # Predict sentiment/class
         y_pred = LR_model.predict(padded_docs)      
         # Display prediction result
@@ -446,6 +500,34 @@ elif selected == "About":
     st.markdown("---")
 
 elif selected == "Contact":
+    # Set page title and header
+    st.title("Supervisors")
+
+    # Introduction text
+    st.write("This application was designed and deployed by **Tharwat El-Sayed Ismail**, under the supervision of:")
+
+    # Load images
+    ayman_image = Image.open("Ayman Elsayed.jpg")
+    abdallah_image = Image.open("Abdullah-N-Moustafa.png")
+    tharwat_image = Image.open("Tharwat Elsayed Ismail.JPG")  # Replace with your image path
+
+    # Display Prof. Dr. Ayman EL-Sayed info and image
+    st.subheader("Prof. Dr. Ayman EL-Sayed")
+    st.image(ayman_image, caption="Prof. Dr. Ayman EL-Sayed", width=200)
+    st.write("[ayman.elsayed@el-eng.menofia.edu.eg](mailto:ayman.elsayed@el-eng.menofia.edu.eg)")
+
+    # Display Dr. Abdallah Moustafa Nabil info and image
+    st.subheader("Dr. Abdallah Moustafa Nabil")
+    st.image(abdallah_image, caption="Dr. Abdallah Moustafa Nabil", width=200)
+    st.write("[abdalla.moustafa@ejust.edu.eg](mailto:abdalla.moustafa@ejust.edu.eg)")
+
+    # Display your contact info and image
+    st.subheader("Eng. Tharwat El-Sayed Ismail")
+    st.image(tharwat_image, caption="Tharwat El-Sayed Ismail", width=200)  # Adjust image size as needed
+    st.write("[tharwat.elsayed@el-eng.menofia.edu.eg](mailto:tharwat.elsayed@el-eng.menofia.edu.eg)")
+        
+    # Horizontal line separator
+    st.markdown("---")
     st.title("Contact Me")
     
     st.write("""
