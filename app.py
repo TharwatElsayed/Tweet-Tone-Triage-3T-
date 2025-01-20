@@ -423,7 +423,7 @@ elif selected == "Try The Model":
         st.markdown("---")
         
         # Predict sentiment/class
-        predictions = SFD_model.predict(input_data)
+        predictions = SFD_model.predict(padded_docs)
         y_pred = np.argmax(predictions, axis=1)
         
         #y_pred = SFD_model.predict(padded_docs)      
